@@ -38,7 +38,7 @@ begin
   suspend;
 
 
-  --Установим биты
+  --вЂќСЃС‚Р°РЅРѕРІРёРј Р±РёС‚С‹
   select SET_BIT(:V_INPUT, 0, 1) from RDB$DATABASE into :V_INPUT;
   select SET_BIT(:V_INPUT, 9, 1) from RDB$DATABASE into :V_INPUT;
   select SET_BIT(:V_INPUT, 19, 1) from RDB$DATABASE into :V_INPUT;
@@ -61,7 +61,7 @@ begin
   end
   suspend;
 
-  --очистим биты
+  --РѕС‡РёСЃС‚РёРј Р±РёС‚С‹
   select SET_BIT(:V_INPUT, 0, 0) from RDB$DATABASE into :V_INPUT;
   select SET_BIT(:V_INPUT, 9, 0) from RDB$DATABASE into :V_INPUT;
   select SET_BIT(:V_INPUT, 19, 0) from RDB$DATABASE into :V_INPUT;
