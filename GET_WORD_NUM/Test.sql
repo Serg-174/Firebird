@@ -1,10 +1,11 @@
 execute block
     returns (
-        O_COUNT_OF_WORDS integer,
+        O_WORD varchar(4096) character set UTF8,
         O_INPUT varchar(4096) character set UTF8
              )
 as
     declare variable V_INPUT varchar(4096) character set UTF8;
+    declare variable V_NUM integer = 3;
     declare variable V_DELIM char(1) character set UTF8;
     declare variable V_TWO_DELIM char(2) character set UTF8;
 begin
@@ -19,16 +20,12 @@ begin
  :V_INPUT = TRIM(:V_INPUT);
  :O_INPUT =  :V_INPUT;
 
- select COUNT_OF_WORDS(:V_INPUT, :V_DELIM) from rdb$database
- into :O_COUNT_OF_WORDS;
- suspend;
 
 
- :V_INPUT = 'Quick brown fox jumps over back of lazy dog';
- :O_INPUT =  :V_INPUT;
- select COUNT_OF_WORDS(:V_INPUT, :V_DELIM) from rdb$database
- into :O_COUNT_OF_WORDS;
+ select GET_WORD_NUM(:V_INPUT, :V_DELIM, :V_NUM) from rdb$database
+ into :O_WORD;
  suspend;
+
 end
 
 
